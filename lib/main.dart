@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'app/routes/app_routes.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyApp(),);
 }
 
 class MyApp extends StatelessWidget {
@@ -9,6 +11,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          title: 'Parthtrada',
+          theme: ThemeData(
+              scaffoldBackgroundColor: Color(0xFFFFFFFF)
+          ),
+          debugShowCheckedModeBanner: false,
+          initialRoute: AppRoutes.initialRoute,
+          routes: AppRoutes.routes,
+        );
+      },
+    );
   }
 }
