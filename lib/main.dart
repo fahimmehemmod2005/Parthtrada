@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:parthtrada/core/constant/app_color.dart';
 import 'app/routes/app_routes.dart';
 
 void main() {
-  runApp(const MyApp(),);
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,9 +19,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           title: 'Parthtrada',
-          theme: ThemeData(
-              scaffoldBackgroundColor: Color(0xFFFFFFFF)
-          ),
+          theme: ThemeData(scaffoldBackgroundColor: AppColor.scaffoldColor),
           debugShowCheckedModeBanner: false,
           initialRoute: AppRoutes.initialRoute,
           routes: AppRoutes.routes,

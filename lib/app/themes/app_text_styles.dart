@@ -7,8 +7,8 @@ class AppTextStyles {
   // primary button Text Style
   static TextStyle primaryButtonText({Color? color}) => GoogleFonts.roboto(fontSize: 18,fontWeight: FontWeight.w500,color: color);
   
-  // font style
-  static TextStyle title18_600w({Color? color}) => GoogleFonts.roboto(fontSize: 18,fontWeight: FontWeight.w600,color: color);
+  // text style
+  static TextStyle title24_800w({Color? color}) => GoogleFonts.roboto(fontSize: 24,fontWeight: FontWeight.w800,color: color);
   static TextStyle title16_400w({Color? color}) => GoogleFonts.roboto(fontSize: 16,fontWeight: FontWeight.w400,color: color);
 }
 
