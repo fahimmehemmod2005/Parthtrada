@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 BottomNavBar(imagePath: AppImages.search,text: 'Search',),
                 BottomNavBar(imagePath: AppImages.calender,text: 'calender',),
-                BottomNavBar(imagePath: AppImages.messege,text: 'Massage',),
+                BottomNavBar(imagePath: AppImages.message,text: 'Massage',),
                 BottomNavBar(imagePath: AppImages.profile,text: 'Profile',),
                 ],
             ),

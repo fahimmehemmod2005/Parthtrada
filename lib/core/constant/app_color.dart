@@ -8,4 +8,8 @@ class AppColor {
 
   // scaffold color
   static const Color scaffoldColor = Color(0xff0F0F0F);
+
+  // container color
+
+  static const Color containerColor = Colors.black38;
 }

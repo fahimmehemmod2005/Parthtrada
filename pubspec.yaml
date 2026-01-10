@@ -38,6 +38,8 @@ dependencies:
   google_fonts: ^7.0.0
   flutter_svg: ^2.2.3
   pin_input_text_field: ^4.5.2
+  linear_calender: ^0.0.7
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:
