@@ -6,7 +6,7 @@ import 'package:parthtrada/app/widgets/buttons/primary_button.dart';
 import 'package:parthtrada/core/constant/app_color.dart';
 import 'package:parthtrada/core/constant/app_images.dart';
 import 'package:parthtrada/core/constant/route_name.dart';
-import 'package:parthtrada/features/search/presentation/view/widgets/search_input_field.dart';
+import 'package:parthtrada/app/widgets/inputfield/search_input_field.dart';
 import '../../../../../app/widgets/containertext/container_text.dart';
 
 class SearchScreen extends StatefulWidget {

@@ -52,6 +52,11 @@ class AppTextStyles {
     fontWeight: FontWeight.w600,
     color: color,
   );
+  static TextStyle title16_700w({Color? color}) => GoogleFonts.nunitoSans(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+    color: color,
+  );
 }
 
 extension TextStyleExtension on TextStyle {

@@ -16,9 +16,26 @@ class AppImages {
   static const String user3 = 'assets/images/user3.png';
   static const String user4 = 'assets/images/user4.png';
   static const String user5 = 'assets/images/user5.png';
+  static const String user6 = 'assets/images/user6.png';
+  static const String user7 = 'assets/images/user7.png';
+
+  // information card icons
+  static const String profileOutline = 'assets/icons/profile_outline.svg';
+  static const String addPeople = 'assets/icons/add_people.svg';
+  static const String payment = 'assets/icons/payment.svg';
+  static const String notification = 'assets/icons/notificaiton.svg';
+  static const String language = 'assets/icons/language.svg';
+  static const String pastTime = 'assets/icons/past_time.svg';
+  static const String policies = 'assets/icons/policies.svg';
+  static const String support = 'assets/icons/support.svg';
+  static const String logout = 'assets/icons/logout.svg';
 
   //icons
   static const String noti = 'assets/icons/noti.svg';
+  static const String add = 'assets/icons/add.svg';
+  static const String leftArrow = 'assets/icons/left_arrow.svg';
+  static const String video = 'assets/icons/video.svg';
+  static const String send = 'assets/icons/send.svg';
   static const String filter = 'assets/icons/filter.svg';
   static const String star = 'assets/icons/star.svg';
   static const String sched = 'assets/icons/sched.svg';

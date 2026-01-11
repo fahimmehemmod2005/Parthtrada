@@ -8,8 +8,9 @@ import 'package:parthtrada/app/widgets/buttons/primary_button.dart';
 import 'package:parthtrada/app/widgets/containertext/container_text.dart';
 import 'package:parthtrada/core/constant/app_color.dart';
 import 'package:parthtrada/core/constant/app_images.dart';
-import 'package:parthtrada/core/constant/route_name.dart';
-import 'package:parthtrada/features/search/presentation/view/widgets/search_input_field.dart';
+import 'package:parthtrada/features/expert_details/presentation/view/screen/session_details.dart';
+import 'package:parthtrada/features/expert_details/presentation/view/widgets/time_slot.dart';
+import 'package:parthtrada/app/widgets/inputfield/search_input_field.dart';
 import '../../../../search/presentation/view/screen/search_screen.dart';
 import '../widgets/experience_container.dart';
 import '../widgets/people_reviews.dart';
@@ -22,8 +23,8 @@ class ExpertDetails extends StatefulWidget {
 }
 
 class _ExpertDetailsState extends State<ExpertDetails> {
+  // session selected
   String? selectedSlot;
-
   final List<String> morningSlots = [
     '08:00 AM',
     '08:30 AM',
@@ -34,7 +35,6 @@ class _ExpertDetailsState extends State<ExpertDetails> {
     '11:00 AM',
     '11:30 AM',
   ];
-
   final List<String> afternoonSlots = [
     '01:00 PM',
     '01:30 PM',
@@ -105,7 +105,7 @@ class _ExpertDetailsState extends State<ExpertDetails> {
 
             SizedBox(height: 15),
 
-            // ----------------- ExperienceStatusContainer ---------------
+            // ----------------- Experience Status Container ---------------
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -168,6 +168,7 @@ class _ExpertDetailsState extends State<ExpertDetails> {
                 ],
               ),
             ),
+
             SizedBox(height: 30.h),
 
             // ----------------- Availability ----------------
@@ -190,25 +191,27 @@ class _ExpertDetailsState extends State<ExpertDetails> {
               'Reviews',
               style: AppTextStyles.title20_800w(color: Colors.white),
             ),
+
             SizedBox(height: 10.h),
 
-            // ------------------ avatar ----------------
+            // ------------------ avatar side by side ----------------
             SizedBox(
               height: 38,
               child: Stack(
                 children: [
                   _avatar(AppImages.user1, 0),
-                  _avatar(AppImages.user2, 22),
-                  _avatar(AppImages.user3, 44),
-                  _avatar(AppImages.user4, 66),
-                  _avatar(AppImages.user5, 88),
-                  _moreAvatar("15+", 110),
+                  _avatar(AppImages.user2, 20),
+                  _avatar(AppImages.user3, 40),
+                  _avatar(AppImages.user4, 60),
+                  _avatar(AppImages.user5, 80),
+                  _avatar(AppImages.user6, 100),
+                  _moreAvatar("15+", 120),
                 ],
               ),
             ),
 
             // --------------- LinearProgressIndicator ----------
-            Padding(padding: const EdgeInsets.all(16), child: _ratingSummary()),
+            Padding(padding: EdgeInsets.all(16), child: _ratingSummary()),
 
             // -------------- add review text button -------------
             GestureDetector(
@@ -220,12 +223,16 @@ class _ExpertDetailsState extends State<ExpertDetails> {
             ),
 
             SizedBox(height: 20),
+
+            // ------------------- rate this title ---------------------
             Text(
               'Rate this',
               style: AppTextStyles.title20_800w(color: Colors.white),
             ),
 
             SizedBox(height: 3),
+
+            // ------------------- rate this subtitle ---------------------
             Text(
               'Click according to your satisfaction.',
               style: AppTextStyles.title14_600w(color: Color(0xffA5A5AB)),
@@ -247,11 +254,13 @@ class _ExpertDetailsState extends State<ExpertDetails> {
 
             SizedBox(height: 20.h),
 
+            // ---------------- write a review -------------------
             Text(
               'Write a review',
               style: AppTextStyles.title20_800w(color: Colors.white),
             ),
-            SizedBox(height: 20,),
+
+            SizedBox(height: 20),
 
             // ----------------- Text form field with max line ------------------
             SearchInputField(
@@ -259,6 +268,7 @@ class _ExpertDetailsState extends State<ExpertDetails> {
               height: 121,
               contentPadding: EdgeInsets.all(20),
             ),
+
             SizedBox(height: 20.h),
 
             // --------------- submit button ---------------------
@@ -267,6 +277,7 @@ class _ExpertDetailsState extends State<ExpertDetails> {
             // ------------ people reviews ---------------------
             SizedBox(height: 20.h),
 
+            // -------------- comments people who review -----------------------
             PeopleReview(
               name: 'Olivia',
               comment: 'Incredible group of people and talented professionals',
@@ -316,6 +327,8 @@ class _ExpertDetailsState extends State<ExpertDetails> {
           ],
         ),
       ),
+
+      // ---------------- booking button botton sheet --------------------
       bottomSheet: PrimaryButton(
         text: 'Book \$150/hour',
         onTap: () {
@@ -330,6 +343,7 @@ class _ExpertDetailsState extends State<ExpertDetails> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // ---------------- month and year ------------------
                     Text(
                       DateFormat('MMMM yyyy').format(DateTime.now()),
                       style: AppTextStyles.title20_800w(
@@ -337,6 +351,8 @@ class _ExpertDetailsState extends State<ExpertDetails> {
                       ),
                     ),
                     SizedBox(height: 20.h),
+
+                    // ----------------- week and day ------------------
                     LinearCalendar(
                       monthVisibility: false,
                       selectedColor: AppColor.primaryColor.withAlpha(20),
@@ -353,10 +369,13 @@ class _ExpertDetailsState extends State<ExpertDetails> {
                       backgroundColor: Colors.transparent,
                       startDate: DateTime.now(),
                     ),
+
+                    SizedBox(height: 20.h),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        // ------------------ morning session -------------
+                        Text(
                           'Morning Session',
                           style: TextStyle(
                             color: Colors.white,
@@ -364,7 +383,8 @@ class _ExpertDetailsState extends State<ExpertDetails> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const SizedBox(height: 16),
+
+                        SizedBox(height: 16),
                         Wrap(
                           spacing: 10,
                           runSpacing: 10,
@@ -380,8 +400,11 @@ class _ExpertDetailsState extends State<ExpertDetails> {
                             );
                           }).toList(),
                         ),
-                        const SizedBox(height: 32),
-                        const Text(
+
+                        SizedBox(height: 32),
+
+                        // ------------------ after noon session ------------
+                        Text(
                           'Afternoon Session',
                           style: TextStyle(
                             color: Colors.white,
@@ -389,7 +412,7 @@ class _ExpertDetailsState extends State<ExpertDetails> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const SizedBox(height: 16),
+                        SizedBox(height: 16),
                         Wrap(
                           spacing: 10,
                           runSpacing: 10,
@@ -411,6 +434,7 @@ class _ExpertDetailsState extends State<ExpertDetails> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
+                        // -------------------- cancel button -------------
                         PrimaryButton(
                           text: 'Cancel',
                           onTap: () {
@@ -419,10 +443,12 @@ class _ExpertDetailsState extends State<ExpertDetails> {
                           width: 158,
                           color: Colors.black38,
                         ),
+
+                        // -------------------- next button  -----------------
                         PrimaryButton(
                           text: 'Next',
+                          width: 158,
                           onTap: () {
-                            // ------------------- build showModalBottomSheet -----------------
                             showModalBottomSheet(
                               context: context,
                               backgroundColor: Colors.transparent,
@@ -430,288 +456,12 @@ class _ExpertDetailsState extends State<ExpertDetails> {
                               builder: (context) {
                                 return buildFilterSheet(
                                   context,
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text('Session Details',style: AppTextStyles.title20_800w(color: Colors.white),),
-                                      Text('Help us prepare for your session with Sarah Chen',style: AppTextStyles.title16_400w(color: Color(0xff777980)),),
-                                    Divider(color: Colors.grey,),
-                                      Text('What Specific topic would you like to discuss?',style: AppTextStyles.title20_800w(color: Colors.white),),
-                                      SizedBox(height: 10,),
-                                      SearchInputField(
-                                        hintText: 'E.g., Implementing machine learning models in production',
-                                        height: 80,
-                                        contentPadding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
-                                        maxLine: 5,
-                                      ),
-                                      SizedBox(height: 10,),
-                                      Text('What challenges are you currently facing?',style: AppTextStyles.title20_800w(color: Colors.white),),
-                                      SizedBox(height: 10,),
-                                      SearchInputField(
-                                        hintText: 'E.g., Model performance issues in production environment',
-                                        height: 80,
-                                        contentPadding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
-                                        maxLine: 5,
-                                      ),
-                                      SizedBox(height: 10,),
-                                      Text('What outcome do you expect from this session?',style: AppTextStyles.title20_800w(color: Colors.white),),
-                                      SizedBox(height: 10,),
-                                      SearchInputField(
-                                        hintText: 'E.g., A clear action plan for improving model',
-                                        height: 80,
-                                        contentPadding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
-                                        maxLine: 5,
-                                      ),
-                                      SizedBox(height: 20),
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          PrimaryButton(
-                                            text: 'Cancel',
-                                            onTap: () {
-                                              Navigator.pop(context);
-                                            },
-                                            width: 158,
-                                            color: Colors.black38,
-                                          ),
-                                          PrimaryButton(
-                                            text: 'Next',
-                                            onTap: () {
-                                              // ------------------- build showModalBottomSheet -----------------
-                                              showModalBottomSheet(
-                                                context: context,
-                                                backgroundColor: Colors.transparent,
-                                                isScrollControlled: true,
-                                                builder: (context) {
-                                                  return buildFilterSheet(
-                                                    context,
-                                                    Column(
-                                                      crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                      children: [
-                                                        Text('Session Duration',style: AppTextStyles.title20_800w(color: Colors.white),),
-                                                        SizedBox(height: 20,),
-              Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-              PrimaryButton(
-              text: 'Cancel',
-              onTap: () {
-              Navigator.pop(context);
-              },
-              width: 158,
-              color: Colors.black38,
-              ),
-              PrimaryButton(
-                width: 158,
-              text: 'Next',
-              onTap: () {
-// ------------------- build showModalBottomSheet -----------------
-showModalBottomSheet(
-context: context,
-backgroundColor: Colors.transparent,
-isScrollControlled: true,
-builder: (context) {
-return buildFilterSheet(
-context,
-Column(
-crossAxisAlignment:
-CrossAxisAlignment.start,
-children: [
-Align(alignment: Alignment.topRight,
-child: GestureDetector(
-onTap: () => Navigator.pop(context),
-child: Icon(
-Icons.close,
-color: Colors.white,
-),
-),
-),
-Text('Confirm Booking',style: AppTextStyles.title20_800w(color: Colors.white),),
-SizedBox(height: 20.h,),
-Container(
-width: double.infinity,
-height: 240.h,
-decoration: BoxDecoration(
-color: Colors.black38,
-borderRadius: BorderRadius.circular(12.r),
-),
-child: Padding(
-padding: const EdgeInsets.only(top: 10.0,bottom: 10,left: 20.0,right: 20.0),
-child: Column(
-mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-crossAxisAlignment: CrossAxisAlignment.start,
-children: [
-Text('Booking Summary',style: AppTextStyles.title20_800w(color: Colors.white),),
-Row(
-mainAxisAlignment: MainAxisAlignment.spaceBetween,
-children: [
-Text('Expert:',style: AppTextStyles.title14_600w(color: Color(0xff777980)),),
-Text('Sarah Chen',style: AppTextStyles.title14_600w(color: Colors.white),)
-],
-),
-SizedBox(height: 15,),
-Row(
-mainAxisAlignment: MainAxisAlignment.spaceBetween,
-children: [
-Text('Time:',style: AppTextStyles.title14_600w(color: Color(0xff777980)),),
-Text('Wed 10am',style: AppTextStyles.title14_600w(color: Colors.white),)
-],
-),
-SizedBox(height: 15,),
-Row(
-mainAxisAlignment: MainAxisAlignment.spaceBetween,
-children: [
-Text('Session Fee:',style: AppTextStyles.title14_600w(color: Color(0xff777980)),),
-Text('\$150/hour',style: AppTextStyles.title14_600w(color: Colors.white),)
-],
-),
-SizedBox(height: 15,),
-Row(
-mainAxisAlignment: MainAxisAlignment.spaceBetween,
-children: [
-Text('Duration:',style: AppTextStyles.title14_600w(color: Color(0xff777980)),),
-Text('30 min',style: AppTextStyles.title14_600w(color: Colors.white),)
-],
-),
-Divider(color: Colors.grey,),
-Row(
-mainAxisAlignment: MainAxisAlignment.spaceBetween,
-children: [
-Text('Total Payment:',style: AppTextStyles.title14_600w(color: Color(0xff777980)),),
-Text('\$75',style: AppTextStyles.title14_600w(color: Colors.white),)
-],
-),
-],
-),
-),
-),
-SizedBox(height: 20),
-PrimaryButton(text: 'Confirm & Pay', onTap: (){
-// ------------------- build showModalBottomSheet -----------------
-showModalBottomSheet(
-context: context,
-backgroundColor: Colors.transparent,
-isScrollControlled: true,
-builder: (context) {
-return buildFilterSheet(
-context,
-Column(
-crossAxisAlignment: CrossAxisAlignment.center,
-children: [
-Container(
-height: 72.h,
-width: 72,
-decoration: BoxDecoration(
-color: Colors.black38,
-borderRadius: BorderRadius.circular(999)
-),
-child: Padding(
-padding: const EdgeInsets.all(10.0),
-child: SvgPicture.asset(AppImages.confirmGreenCheck,),
-),
-),
-SizedBox(height: 20.h),
-Text('Confirm Booking',style: AppTextStyles.title20_800w(color: Colors.white),),
-SizedBox(height: 10,),
-Text('Your season with Sarah Chen is Scheduled for Wed 10 am',textAlign: TextAlign.center,style: AppTextStyles.title16_400w(color: Color(0xff777980)),),
-SizedBox(height: 20.h,),
-Container(
-width: double.infinity,
-height: 240.h,
-decoration: BoxDecoration(
-color: Colors.black38,
-borderRadius: BorderRadius.circular(12.r),
-),
-child: Padding(
-padding: const EdgeInsets.only(top: 10.0,bottom: 10,left: 20.0,right: 20.0),
-child: Column(
-mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-crossAxisAlignment: CrossAxisAlignment.start,
-children: [
-Text('Booking Summary',style: AppTextStyles.title20_800w(color: Colors.white),),
-Row(
-mainAxisAlignment: MainAxisAlignment.spaceBetween,
-children: [
-Text('Expert:',style: AppTextStyles.title14_600w(color: Color(0xff777980)),),
-Text('Sarah Chen',style: AppTextStyles.title14_600w(color: Colors.white),)
-],
-),
-SizedBox(height: 15,),
-Row(
-mainAxisAlignment: MainAxisAlignment.spaceBetween,
-children: [
-Text('Time:',style: AppTextStyles.title14_600w(color: Color(0xff777980)),),
-Text('Wed 10am',style: AppTextStyles.title14_600w(color: Colors.white),)
-],
-),
-SizedBox(height: 15,),
-Row(
-mainAxisAlignment: MainAxisAlignment.spaceBetween,
-children: [
-Text('Session Fee:',style: AppTextStyles.title14_600w(color: Color(0xff777980)),),
-Text('\$150/hour',style: AppTextStyles.title14_600w(color: Colors.white),)
-],
-),
-SizedBox(height: 15,),
-Row(
-mainAxisAlignment: MainAxisAlignment.spaceBetween,
-children: [
-Text('Duration:',style: AppTextStyles.title14_600w(color: Color(0xff777980)),),
-Text('30 min',style: AppTextStyles.title14_600w(color: Colors.white),)
-],
-),
-Divider(color: Colors.grey,),
-Row(
-mainAxisAlignment: MainAxisAlignment.spaceBetween,
-children: [
-Text('Total Payment:',style: AppTextStyles.title14_600w(color: Color(0xff777980)),),
-Text('\$75',style: AppTextStyles.title14_600w(color: Colors.white),)
-],
-),
-],
-),
-),
-),
-SizedBox(height: 20,),
-PrimaryButton(text: 'Done', onTap: (){
-Navigator.pushNamed(context, RouteName.search);
-}),
-],
-)
-);
-},
-);
-},
-),
-
-]
-),
-);
-},
-);
-              }
-              )
-                ]
-              )
-                                                      ]
-                                                    ),
-                                                  );
-                                                },
-                                              );
-                                            },
-                                            width: 158,
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
+                                  // ----------------- session.dart page ------------------
+                                  SessionDetails(),
                                 );
                               },
                             );
                           },
-                          width: 158,
                         ),
                       ],
                     ),
@@ -759,11 +509,10 @@ Widget _moreAvatar(String text, double left) {
   );
 }
 
-Widget _ratingSummary() {
+Row _ratingSummary() {
   return Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      // ⭐ LEFT SIDE (4.8, stars, reviews)
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -786,7 +535,6 @@ Widget _ratingSummary() {
 
       SizedBox(width: 20),
 
-      // ⭐ RIGHT SIDE (progress bars)
       Expanded(
         child: Column(
           children: [
@@ -824,39 +572,4 @@ Widget _ratingBarRow(int index, double value) {
       ],
     ),
   );
-}
-
-class TimeSlotChip extends StatelessWidget {
-  final String time;
-  final bool isSelected;
-  final VoidCallback onTap;
-
-  const TimeSlotChip({
-    Key? key,
-    required this.time,
-    required this.isSelected,
-    required this.onTap,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-        decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFF00CED1) : const Color(0xFF2a2a2a),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Text(
-          time,
-          style: TextStyle(
-            color: isSelected ? Colors.black : Colors.white70,
-            fontSize: 14,
-            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-          ),
-        ),
-      ),
-    );
-  }
 }

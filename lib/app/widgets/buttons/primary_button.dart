@@ -29,10 +29,7 @@ class PrimaryButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.r),
         ),
         child: Center(
-          child: Text(
-            text,
-            style: AppTextStyles.primaryButtonText(color: Colors.white),
-          ),
+          child: Text(text,style: AppTextStyles.primaryButtonText(color: Colors.white),),
         ),
       ),
     );
