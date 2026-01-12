@@ -120,7 +120,9 @@ class _EditProfileState extends State<EditProfile> {
                     width: 150,
                     text: 'Discard',
                     color: Colors.black38,
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
                   ),
                   PrimaryButton(
                     width: 150,

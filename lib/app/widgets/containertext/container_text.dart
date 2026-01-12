@@ -9,13 +9,20 @@ class TextContainer extends StatelessWidget {
   final double? height;
   final Color? backgroundColor;
   final TextStyle? textStyle;
+  final bool showCheckbox;
+  final bool? checkboxValue;
+  final ValueChanged<bool?>? onChanged;
+
   const TextContainer({
     super.key,
     required this.text,
-    required this.width,
+    this.width,
     this.backgroundColor,
     this.textStyle,
     this.height = 30,
+    this.showCheckbox = false,
+    this.checkboxValue,
+    this.onChanged,
   });
 
   @override
@@ -28,13 +35,26 @@ class TextContainer extends StatelessWidget {
         border: Border.all(color: AppColor.primaryColor),
         borderRadius: BorderRadius.circular(30.r),
       ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if (showCheckbox)
+            Checkbox(
+              activeColor: AppColor.primaryColor,
+              checkColor: Colors.black,
+              value: checkboxValue ?? false,
+              onChanged: onChanged,
+            ),
 
-      child: Center(
-        child: Text(
-          text,
-          style: textStyle ?? AppTextStyles.title14_600w(color: AppColor.primaryColor),
-        ),
+          Text(
+            text,
+            style: textStyle ??
+                AppTextStyles.title14_600w(color: AppColor.primaryColor),
+          ),
+        ],
       ),
     );
   }
 }
+

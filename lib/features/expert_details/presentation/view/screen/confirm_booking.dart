@@ -147,7 +147,7 @@ class ConfirmBooking extends StatelessWidget {
         PrimaryButton(
           text: 'Done',
           onTap: () {
-            Navigator.pushNamed(context, RouteName.search);
+            Navigator.pushNamed(context, RouteName.home);
           },
         ),
       ],

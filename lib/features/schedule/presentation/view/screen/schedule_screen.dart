@@ -5,7 +5,6 @@ import 'package:parthtrada/app/themes/app_text_styles.dart';
 import 'package:parthtrada/core/constant/app_color.dart';
 import 'package:parthtrada/core/constant/app_images.dart';
 import 'package:parthtrada/core/constant/route_name.dart';
-import 'package:parthtrada/features/schedule/presentation/view/screen/notification_screen.dart';
 
 import '../../../../../app/widgets/buttons/primary_button.dart';
 

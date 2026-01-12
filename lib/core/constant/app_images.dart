@@ -9,6 +9,9 @@ class AppImages {
   static const String profile = 'assets/bottom_nav_icons/profile.svg';
   static const String calender = 'assets/bottom_nav_icons/calendar.svg';
 
+  // student
+  static const String student = 'assets/images/student.png';
+  
   //image user
   static const String experts = 'assets/images/experts.png';
   static const String user1 = 'assets/images/user1.png';
@@ -18,6 +21,7 @@ class AppImages {
   static const String user5 = 'assets/images/user5.png';
   static const String user6 = 'assets/images/user6.png';
   static const String user7 = 'assets/images/user7.png';
+  static const String tureNote = 'assets/icons/trueNote.png';
 
   // information card icons
   static const String profileOutline = 'assets/icons/profile_outline.svg';
@@ -32,6 +36,7 @@ class AppImages {
 
   //icons
   static const String noti = 'assets/icons/noti.svg';
+  static const String scan = 'assets/icons/scan.svg';
   static const String add = 'assets/icons/add.svg';
   static const String leftArrow = 'assets/icons/left_arrow.svg';
   static const String video = 'assets/icons/video.svg';

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:parthtrada/app/themes/app_text_styles.dart';
 import 'package:parthtrada/core/constant/app_images.dart';
+import 'package:parthtrada/core/constant/route_name.dart';
 
 import '../../../../../app/widgets/buttons/primary_button.dart';
 import '../../../../../core/constant/app_color.dart';
@@ -85,7 +86,9 @@ class _NotificationScreenState extends State<NotificationScreen> {
                             width: 147,
                             height: 40,
                             text: 'Accept',
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, RouteName.detailsScreen);
+                            },
                           ),
                         ],
                       ),

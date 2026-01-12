@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:parthtrada/core/constant/app_images.dart';
 import 'package:parthtrada/core/constant/route_name.dart';
-
+import 'package:parthtrada/features/profile/presentation/view/screen/availability.dart';
 import '../../../../../app/themes/app_text_styles.dart';
 import '../../../../../app/widgets/buttons/primary_button.dart';
 import '../../../../../app/widgets/containertext/container_text.dart';
@@ -41,7 +42,21 @@ class SessionDetailsInProfileTwo extends StatelessWidget {
         SizedBox(height: 5,),
         SearchInputField(
           hintText: 'Select Time',
-          contentPadding: EdgeInsets.symmetric(horizontal: 10,vertical: 10),
+          contentPadding: EdgeInsets.symmetric(horizontal: 10,vertical: 12),
+          suffixImage: AppImages.sched,
+          onSuffixTap: (){
+            showModalBottomSheet(
+              context: context,
+              backgroundColor: Colors.transparent,
+              isScrollControlled: true,
+              builder: (context) {
+                return buildFilterSheet(
+                  context,
+                  Availability(),
+                );
+              },
+            );
+          },
         ),
         SizedBox(height: 5,),
         Row(
@@ -79,7 +94,7 @@ class SessionDetailsInProfileTwo extends StatelessWidget {
               height: 50,
               text: 'Done',
               onTap: () {
-                Navigator.pushNamed(context, RouteName.editProfile);
+                Navigator.pushNamed(context, RouteName.home);
               },
             ),
           ],

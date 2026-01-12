@@ -5,9 +5,11 @@ import '../../../../../core/constant/app_images.dart';
 import '../screen/chat_screen.dart';
 
 class ChatBubble extends StatelessWidget {
+  final String userImage;
+  final String expertImage;
   final ChatMessage message;
 
-  const ChatBubble({Key? key, required this.message}) : super(key: key);
+  const ChatBubble({Key? key, required this.message, required this.userImage, required this.expertImage}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class ChatBubble extends StatelessWidget {
             CircleAvatar(
               radius: 16,
               backgroundColor: Color(0xFF2a2a2a),
-              child: Image.asset(AppImages.experts),
+              child: Image.asset(expertImage),
             ),
             const SizedBox(width: 8),
           ],
@@ -62,7 +64,7 @@ class ChatBubble extends StatelessWidget {
           ),
           if (message.isMe) ...[
             SizedBox(width: 8),
-            CircleAvatar(radius: 16, child: Image.asset(AppImages.user7)),
+            CircleAvatar(radius: 16, child: Image.asset(userImage)),
           ],
         ],
       ),

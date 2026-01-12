@@ -50,7 +50,11 @@ class _SearchScreenState extends State<SearchScreen> {
                   Spacer(),
 
                   // --------------------- notification button -----------------------
-                  SvgPicture.asset(AppImages.noti),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.pushNamed(context, RouteName.notification);
+                    },
+                      child: SvgPicture.asset(AppImages.noti)),
                 ],
               ),
 
