@@ -113,9 +113,9 @@ class _ExpertDetailsState extends State<ExpertDetails> {
             SizedBox(height: 14.h),
             Row(
               children: [
-                TextContainer(text: 'Machine Learning', width: 129),
+                TextContainer(text: '  Machine Learning  '),
                 SizedBox(width: 10.w),
-                TextContainer(text: 'Data Science', width: 95),
+                TextContainer(text: '  Data Science  '),
               ],
             ),
 

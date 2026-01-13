@@ -86,18 +86,20 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          PrimaryButton(
-                            height: 40,
-                            width: 147,
-                            text: 'Cancel',
-                            color: Colors.black38,
-                            onTap: () {},
+                          Expanded(
+                            child: PrimaryButton(
+                              height: 40,
+                              text: 'Cancel',
+                              color: Colors.black38,
+                              onTap: () {},
+                            ),
                           ),
-                          PrimaryButton(
-                            width: 147,
-                            height: 40,
-                            text: 'Join Call',
-                            onTap: () {},
+                          Expanded(
+                            child: PrimaryButton(
+                              height: 40,
+                              text: 'Join Call',
+                              onTap: () {},
+                            ),
                           ),
                         ],
                       ),

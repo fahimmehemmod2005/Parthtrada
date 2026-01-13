@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:parthtrada/app/widgets/buttons/primary_button.dart';
-import 'package:parthtrada/core/constant/route_name.dart';
 import 'package:parthtrada/features/profile/presentation/view/widgets/switch_checkbox_panel.dart';
 import '../../../../../app/themes/app_text_styles.dart';
 import '../../../../../core/constant/app_images.dart';
@@ -15,15 +14,25 @@ class NotificationOption extends StatefulWidget {
 }
 
 class _NotificationOptionState extends State<NotificationOption> {
+  // State variables for each notification option
+  bool notifications = true;
+  bool email = true;
+  bool sound = true;
+  bool vibrate = true;
+  bool appUpdates = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(height: 10.h),
+
+              // Header
               Row(
                 children: [
                   GestureDetector(
@@ -39,53 +48,87 @@ class _NotificationOptionState extends State<NotificationOption> {
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
-              const Divider(color: Colors.grey),
-              const SizedBox(height: 10),
 
+              SizedBox(height: 10.h),
+              Divider(color: Colors.grey),
+              SizedBox(height: 20.h),
+
+              // Notification Options
               SwitchCheckboxPanel(
                 text: 'Notifications',
                 controlType: PanelControlType.switchButton,
-                value: true,
-                switchOnChanged: (value) {},
+                value: notifications,
+                switchOnChanged: (value) {
+                  setState(() {
+                    notifications = value!;
+                  });
+                },
               ),
-              const SizedBox(height: 10),
+
+              SizedBox(height: 10.h),
+
               SwitchCheckboxPanel(
                 text: 'Email',
                 controlType: PanelControlType.switchButton,
-                value: true,
-                switchOnChanged: (value) {},
+                value: email,
+                switchOnChanged: (value) {
+                  setState(() {
+                    email = value!;
+                  });
+                },
               ),
-              const SizedBox(height: 10),
+
+              SizedBox(height: 10.h),
+
               SwitchCheckboxPanel(
                 text: 'Sound',
                 controlType: PanelControlType.switchButton,
-                value: true,
-                switchOnChanged: (value) {},
+                value: sound,
+                switchOnChanged: (value) {
+                  setState(() {
+                    sound = value!;
+                  });
+                },
               ),
-              const SizedBox(height: 10),
+
+              SizedBox(height: 10.h),
+
               SwitchCheckboxPanel(
                 text: 'Vibrate',
                 controlType: PanelControlType.switchButton,
-                value: true,
-                switchOnChanged: (value) {},
+                value: vibrate,
+                switchOnChanged: (value) {
+                  setState(() {
+                    vibrate = value!;
+                  });
+                },
               ),
-              const SizedBox(height: 10),
+
+              SizedBox(height: 10.h),
+
               SwitchCheckboxPanel(
                 text: 'App Updates',
                 controlType: PanelControlType.switchButton,
-                value: true,
-                switchOnChanged: (value) {},
+                value: appUpdates,
+                switchOnChanged: (value) {
+                  setState(() {
+                    appUpdates = value!;
+                  });
+                },
               ),
 
-              const Spacer(),
+              Spacer(),
 
+              // Save Button
               PrimaryButton(
                 text: 'Save',
                 onTap: () {
-                  Navigator.pushNamed(context, RouteName.profile);
+                  // Navigate back or to profile
+                  Navigator.pop(context);
                 },
               ),
+
+              SizedBox(height: 20.h),
             ],
           ),
         ),

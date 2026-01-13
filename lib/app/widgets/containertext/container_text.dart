@@ -5,7 +5,6 @@ import '../../themes/app_text_styles.dart';
 
 class TextContainer extends StatelessWidget {
   final String text;
-  final double? width;
   final double? height;
   final Color? backgroundColor;
   final TextStyle? textStyle;
@@ -16,7 +15,6 @@ class TextContainer extends StatelessWidget {
   const TextContainer({
     super.key,
     required this.text,
-    this.width,
     this.backgroundColor,
     this.textStyle,
     this.height = 30,
@@ -29,7 +27,6 @@ class TextContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: height,
-      width: width,
       decoration: BoxDecoration(
         color: backgroundColor ?? AppColor.primaryColor.withAlpha(20),
         border: Border.all(color: AppColor.primaryColor),

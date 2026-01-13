@@ -11,9 +11,15 @@ class AppImages {
 
   // student
   static const String student = 'assets/images/student.png';
-  
+
+  // onboarding images
+  static const String onboarding1 = 'assets/images/onboarding1.png';
+  static const String onboarding2 = 'assets/images/onboarding2.png';
+  static const String onboarding3 = 'assets/images/onboarding3.png';
+
   //image user
   static const String experts = 'assets/images/experts.png';
+  static const String people = 'assets/images/people.png';
   static const String user1 = 'assets/images/user1.png';
   static const String user2 = 'assets/images/user2.png';
   static const String user3 = 'assets/images/user3.png';
@@ -50,4 +56,12 @@ class AppImages {
   static const String starOutline = 'assets/icons/star_outline.svg';
   static const String arrowRight = 'assets/icons/arrow_right.svg';
   static const String confirmGreenCheck = 'assets/icons/green_check.svg';
+  static const String trophy = 'assets/icons/trophy.svg';
+  static const String target = 'assets/icons/target.svg';
+  static const String users = 'assets/icons/users.svg';
+  static const String greenStar = 'assets/icons/green_star.svg';
+  static const String google = 'assets/icons/google.svg';
+  static const String meta = 'assets/icons/meta.svg';
+  static const String tesla = 'assets/icons/tesla.svg';
+  static const String microsoft = 'assets/icons/microsoft.svg';
 }

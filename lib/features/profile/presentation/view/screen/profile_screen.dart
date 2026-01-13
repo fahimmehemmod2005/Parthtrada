@@ -93,7 +93,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               InformationListTile(text: 'Help & Support', prefixImage: AppImages.support,onTap: (){Navigator.pushNamed(context, RouteName.trueNoteSupport);}),
               SizedBox(height: 10.h),
               InformationListTile(text: 'Logout', prefixImage: AppImages.logout,onTap: (){_showLogoutDialog(context);}),
-              SizedBox(height: 40,),
+              SizedBox(height: 70,),
             ],
           ),
         ),

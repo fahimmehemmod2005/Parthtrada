@@ -4,6 +4,7 @@ import 'package:parthtrada/features/expert_details/presentation/view/screen/expe
 import 'package:parthtrada/features/login/presentation/view/screens/login_screen.dart';
 import 'package:parthtrada/features/messages/presentaton/view/screen/chat_screen.dart';
 import 'package:parthtrada/features/messages/presentaton/view/screen/messages_screen.dart';
+import 'package:parthtrada/features/onboarding/presentation/view/screen/onboarding_screen.dart';
 import 'package:parthtrada/features/profile/presentation/view/screen/language.dart';
 import 'package:parthtrada/features/profile/presentation/view/screen/notification_option.dart';
 import 'package:parthtrada/features/profile/presentation/view/screen/past_calls.dart';
@@ -43,6 +44,7 @@ class AppRoutes {
     RouteName.privacyPolicy: (context) => const PrivacyPolicy(),
     RouteName.trueNoteSupport: (context) => const TrueNoteSupport(),
     RouteName.detailsScreen: (context) => const DetailsScreen(),
+    RouteName.onboarding: (context) => const OnboardingScreen(),
 
   };
 }

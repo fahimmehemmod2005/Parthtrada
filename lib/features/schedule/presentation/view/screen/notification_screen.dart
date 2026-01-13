@@ -75,20 +75,22 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          PrimaryButton(
-                            height: 40,
-                            width: 147,
-                            text: 'Decline',
-                            color: Colors.black38,
-                            onTap: () {},
+                          Expanded(
+                            child: PrimaryButton(
+                              height: 40,
+                              text: 'Decline',
+                              color: Colors.black38,
+                              onTap: () {},
+                            ),
                           ),
-                          PrimaryButton(
-                            width: 147,
-                            height: 40,
-                            text: 'Accept',
-                            onTap: () {
-                              Navigator.pushNamed(context, RouteName.detailsScreen);
-                            },
+                          Expanded(
+                            child: PrimaryButton(
+                              height: 40,
+                              text: 'Accept',
+                              onTap: () {
+                                Navigator.pushNamed(context, RouteName.detailsScreen);
+                              },
+                            ),
                           ),
                         ],
                       ),

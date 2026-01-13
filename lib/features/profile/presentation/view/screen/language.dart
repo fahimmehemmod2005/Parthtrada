@@ -15,65 +15,87 @@ class Language extends StatefulWidget {
 }
 
 class _LanguageState extends State<Language> {
+
+  String selectedLanguage = 'English (US)';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        top: true,
-        bottom: true,
         child: Padding(
-          padding: EdgeInsetsGeometry.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+
+              /// ---------- App bar ----------
               Row(
                 children: [
                   GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
+                    onTap: () => Navigator.pop(context),
                     child: SvgPicture.asset(AppImages.leftArrow),
                   ),
                   SizedBox(width: 15.w),
                   Text(
-                    'Notification',
+                    'Language',
                     style: AppTextStyles.title20_800w(color: Colors.white),
                   ),
                 ],
               ),
-              SizedBox(height: 10),
-              Divider(color: Colors.grey),
-              SizedBox(height: 10),
+
+              const SizedBox(height: 10),
+              const Divider(color: Colors.grey),
+              const SizedBox(height: 10),
+
+              /// ---------- Suggested ----------
               Text(
                 'Suggested',
                 style: AppTextStyles.title20_800w(color: Colors.white),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
+
               SwitchCheckboxPanel(
                 text: 'English (US)',
                 controlType: PanelControlType.checkbox,
-                checkboxOnChanged: (value) {},
-                value: true,
+                value: selectedLanguage == 'English (US)',
+                checkboxOnChanged: (value) {
+                  setState(() {
+                    selectedLanguage = 'English (US)';
+                  });
+                },
               ),
-              SizedBox(height: 10),
+
+              const SizedBox(height: 10),
+
               SwitchCheckboxPanel(
                 text: 'English (UK)',
                 controlType: PanelControlType.checkbox,
-                checkboxOnChanged: (value) {},
-                value: false,
+                value: selectedLanguage == 'English (UK)',
+                checkboxOnChanged: (value) {
+                  setState(() {
+                    selectedLanguage = 'English (UK)';
+                  });
+                },
               ),
-              SizedBox(height: 10),
+
+              const SizedBox(height: 20),
+
+              /// ---------- Others ----------
               Text(
                 'Others',
                 style: AppTextStyles.title20_800w(color: Colors.white),
               ),
-              Spacer(),
+
+              const Spacer(),
+
+              /// ---------- Save button ----------
               PrimaryButton(
                 text: 'Save',
                 onTap: () {
                   Navigator.pushNamed(context, RouteName.profile);
                 },
               ),
+              SizedBox(height: 10,),
             ],
           ),
         ),
@@ -81,3 +103,4 @@ class _LanguageState extends State<Language> {
     );
   }
 }
+

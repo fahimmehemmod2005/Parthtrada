@@ -197,6 +197,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                 ],
               ),
+              SizedBox(height: 10.h),
             ],
           ),
         ),

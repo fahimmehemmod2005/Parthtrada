@@ -60,33 +60,43 @@ class _MessagesScreenState extends State<MessagesScreen> {
                           borderRadius: BorderRadius.circular(12.r),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.all(10.0),
+                          padding:  EdgeInsets.all(10),
                           child: Row(
                             children: [
-                              CircleAvatar(child: Image.asset(AppImages.user3)),
-                              SizedBox(width: 10.w),
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Fahim Hasan',
-                                    style: AppTextStyles.title16_700w(
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                  Text(
-                                    'Looking forward to our call tomorrow',
-                                    style: AppTextStyles.title12_600w(
-                                      color: AppColor.grayBlack50,
-                                    ),
-                                  ),
-                                ],
+                              CircleAvatar(
+                                child: Image.asset(AppImages.user3, fit: BoxFit.cover),
                               ),
-                              SizedBox(width: 20.w),
+
+                              SizedBox(width: 10.w),
+
+                              Expanded(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Fahim Hasan',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: AppTextStyles.title16_700w(color: Colors.white),
+                                    ),
+                                    SizedBox(height: 4.h),
+                                    Text(
+                                      'Looking forward to our call tomorrow and discussing the project details',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: AppTextStyles.title12_600w(
+                                        color: AppColor.grayBlack50,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              SizedBox(width: 10.w),
+
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     '10:30',
@@ -94,12 +104,13 @@ class _MessagesScreenState extends State<MessagesScreen> {
                                       color: AppColor.grayBlack300,
                                     ),
                                   ),
+                                  SizedBox(height: 6.h),
                                   CircleAvatar(
                                     radius: 13,
                                     backgroundColor: AppColor.primaryColor,
                                     child: Text(
                                       '1',
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.white, fontSize: 12),
                                     ),
                                   ),
                                 ],
@@ -107,7 +118,8 @@ class _MessagesScreenState extends State<MessagesScreen> {
                             ],
                           ),
                         ),
-                      ),
+                      )
+
                     ),
                   ),
               ),

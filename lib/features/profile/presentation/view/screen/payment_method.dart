@@ -21,7 +21,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
       body: SafeArea(
         top: true,
         bottom: true,
-        child: Padding(
+        child: SingleChildScrollView(
           padding: EdgeInsetsGeometry.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,10 +76,11 @@ class _PaymentMethodState extends State<PaymentMethod> {
                 contentPadding: EdgeInsets.symmetric(horizontal: 10),
                 maxLine: 1,
               ),
-              Spacer(),
+              SizedBox(height: 175,),
               PrimaryButton(text: 'Save', onTap: (){
                 Navigator.pushNamed(context, RouteName.profile);
-              })
+              }),
+              SizedBox(height: 10,),
             ],
           ),
         ),

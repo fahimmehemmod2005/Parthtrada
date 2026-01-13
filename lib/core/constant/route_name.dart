@@ -17,4 +17,5 @@ class RouteName {
   static const String privacyPolicy = '/privacyPolicy';
   static const String trueNoteSupport = '/trueNoteSupport';
   static const String detailsScreen = '/detailsScreen';
+  static const String onboarding = '/onboarding';
 }

@@ -40,6 +40,7 @@ dependencies:
   pin_input_text_field: ^4.5.2
   linear_calender: ^0.0.7
   intl: ^0.20.2
+  provider: ^6.1.5+1
 
 dev_dependencies:
   flutter_test:

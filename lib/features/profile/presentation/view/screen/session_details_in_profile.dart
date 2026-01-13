@@ -54,15 +54,13 @@ class SessionDetailsInProfile extends StatelessWidget {
         SizedBox(height: 7,),
         Row(
           children: [
-            TextContainer(text: 'Machine Learning',
-              width: 150,
+            TextContainer(text: '  Machine Learning  ',
               height: 40,
               backgroundColor: AppColor.primaryColor,
               textStyle: AppTextStyles.title16_700w(color: Colors.white),
             ),
             SizedBox(width: 10),
-            TextContainer(text: 'Data Science',
-              width: 130,
+            TextContainer(text: '  Data Science  ',
               height: 40,
               backgroundColor: AppColor.primaryColor,
               textStyle: AppTextStyles.title16_700w(color: Colors.white),

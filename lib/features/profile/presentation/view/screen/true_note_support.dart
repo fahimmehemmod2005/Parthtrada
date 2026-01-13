@@ -161,6 +161,7 @@ class _TrueNoteSupportState extends State<TrueNoteSupport> {
                   ),
                 ],
               ),
+              SizedBox(height: 10,),
             ],
           ),
         ),

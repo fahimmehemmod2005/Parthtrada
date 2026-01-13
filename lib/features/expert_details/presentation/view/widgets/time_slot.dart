@@ -18,18 +18,24 @@ class TimeSlotChip extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        height: 40,
+        width: 90,
         decoration: BoxDecoration(
           color: isSelected ? AppColor.primaryColor : const Color(0xFF2a2a2a),
           borderRadius: BorderRadius.circular(20),
         ),
-        child: Text(
-          time,
-          style: TextStyle(
-            color: isSelected ? Colors.white : Colors.white,
-            fontSize: 14,
-            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              time,
+              style: TextStyle(
+                color: isSelected ? Colors.white : Colors.white,
+                fontSize: 14,
+                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+              ),
+            ),
+          ],
         ),
       ),
     );

@@ -17,30 +17,35 @@ class SessionTime extends StatefulWidget {
 }
 
 class _SessionTimeState extends State<SessionTime> {
+  // Move state variables to class level
+  String? selectedSlot;
+  DateTime? selectedDate;
+
+  // Move lists to class level
+  final List<String> morningSlots = [
+    '08:00 AM',
+    '08:30 AM',
+    '09:00 AM',
+    '09:30 AM',
+    '10:00 AM',
+    '10:30 AM',
+    '11:00 AM',
+    '11:30 AM',
+  ];
+
+  final List<String> afternoonSlots = [
+    '01:00 PM',
+    '01:30 PM',
+    '04:00 PM',
+    '04:30 PM',
+    '05:00 PM',
+    '05:30 PM',
+    '06:00 PM',
+    '06:30 PM',
+  ];
+
   @override
   Widget build(BuildContext context) {
-    String? selectedSlot;
-    // session selected
-    final List<String> morningSlots = [
-      '08:00 AM',
-      '08:30 AM',
-      '09:00 AM',
-      '09:30 AM',
-      '10:00 AM',
-      '10:30 AM',
-      '11:00 AM',
-      '11:30 AM',
-    ];
-    final List<String> afternoonSlots = [
-      '01:00 PM',
-      '01:30 PM',
-      '04:00 PM',
-      '04:30 PM',
-      '05:00 PM',
-      '05:30 PM',
-      '06:00 PM',
-      '06:30 PM',
-    ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -61,7 +66,11 @@ class _SessionTimeState extends State<SessionTime> {
           borderwidth: 0,
           selectedBorderColor: AppColor.primaryColor,
           unselectedBorderColor: Colors.transparent,
-          onChanged: (value) => print(value),
+          onChanged: (value) {
+            setState(() {
+              selectedDate = value;
+            });
+          },
           height: 60,
           selectedTextStyle: TextStyle(
             color: AppColor.primaryColor,
@@ -72,97 +81,101 @@ class _SessionTimeState extends State<SessionTime> {
         ),
 
         SizedBox(height: 20.h),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // ------------------ morning session -------------
-            Text(
-              'Morning Session',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
 
-            SizedBox(height: 16),
-            Wrap(
-              spacing: 10,
-              runSpacing: 10,
-              children: morningSlots.map((slot) {
-                return TimeSlotChip(
-                  time: slot,
-                  isSelected: selectedSlot == slot,
-                  onTap: () {
-                    setState(() {
-                      selectedSlot = slot;
-                    });
-                  },
-                );
-              }).toList(),
-            ),
-
-            SizedBox(height: 32),
-
-            // ------------------ after noon session ------------
-            Text(
-              'Afternoon Session',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 16),
-            Wrap(
-              spacing: 10,
-              runSpacing: 10,
-              children: afternoonSlots.map((slot) {
-                return TimeSlotChip(
-                  time: slot,
-                  isSelected: selectedSlot == slot,
-                  onTap: () {
-                    setState(() {
-                      selectedSlot = slot;
-                    });
-                  },
-                );
-              }).toList(),
-            ),
-          ],
+        // ------------------ morning session -------------
+        Text(
+          'Morning Session',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
         ),
+
+        SizedBox(height: 16.h),
+        Wrap(
+          spacing: 10.w,
+          runSpacing: 10.h,
+          children: morningSlots.map((slot) {
+            return TimeSlotChip(
+              time: slot,
+              isSelected: selectedSlot == slot,
+              onTap: () {
+                setState(() {
+                  selectedSlot = slot;
+                });
+              },
+            );
+          }).toList(),
+        ),
+
+        SizedBox(height: 32.h),
+
+        // ------------------ afternoon session ------------
+        Text(
+          'Afternoon Session',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+
+        SizedBox(height: 16.h),
+        Wrap(
+          spacing: 10.w,
+          runSpacing: 10.h,
+          children: afternoonSlots.map((slot) {
+            return TimeSlotChip(
+              time: slot,
+              isSelected: selectedSlot == slot,
+              onTap: () {
+                setState(() {
+                  selectedSlot = slot;
+                });
+              },
+            );
+          }).toList(),
+        ),
+
         SizedBox(height: 20.h),
+
+        // Bottom buttons
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             // -------------------- cancel button -------------
-            PrimaryButton(
-              text: 'Cancel',
-              onTap: () {
-                Navigator.pop(context);
-              },
-              width: 158,
-              color: Colors.black38,
+            Expanded(
+              child: PrimaryButton(
+                text: 'Cancel',
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                color: Colors.black38,
+                height: 50,
+              ),
             ),
 
+            SizedBox(width: 12.w),
+
             // -------------------- next button  -----------------
-            PrimaryButton(
-              text: 'Next',
-              width: 158,
-              onTap: () {
-                showModalBottomSheet(
-                  context: context,
-                  backgroundColor: Colors.transparent,
-                  isScrollControlled: true,
-                  builder: (context) {
-                    return buildFilterSheet(
-                      context,
-                      // ----------------- session.dart page ------------------
-                      SessionDetails(),
+            Expanded(
+              child: PrimaryButton(
+                text: 'Next',
+                onTap: () {
+                  showModalBottomSheet(
+                      context: context,
+                      backgroundColor: Colors.transparent,
+                      isScrollControlled: true,
+                      builder: (context) {
+                        return buildFilterSheet(
+                          context,
+                          SessionDetails(),
+                        );
+                      },
                     );
-                  },
-                );
-              },
+                },
+                height: 50,
+              ),
             ),
           ],
         ),

@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   BottomNavBar(
                     imagePath: AppImages.calender,
-                    text: 'Calendar',
+                    text: 'Schedule',
                     isActive: currentIndex == 1,
                     onTap: () => setState(() => currentIndex = 1),
                   ),
