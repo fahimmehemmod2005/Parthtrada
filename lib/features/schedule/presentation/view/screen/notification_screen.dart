@@ -83,6 +83,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                               onTap: () {},
                             ),
                           ),
+                          SizedBox(width: 10,),
                           Expanded(
                             child: PrimaryButton(
                               height: 40,

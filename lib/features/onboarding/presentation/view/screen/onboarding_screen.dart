@@ -51,17 +51,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 50.w),
                       child: PrimaryButton(
-                          text: onboardingVM.isLastPage ? 'Get Started' : 'Next',
-                          onTap: (){
-                            if (onboardingVM.isLastPage) {
-                              Navigator.pushNamed(context, RouteName.login);
-                            } else {
-                              onboardingVM.nextPage();
-                            }
+                        text: onboardingVM.isLastPage ? 'Get Started' : 'Next',
+                        onTap: () {
+                          if (onboardingVM.isLastPage) {
+                            Navigator.pushNamed(context, RouteName.login);
+                          } else {
+                            onboardingVM.nextPage();
                           }
-                      )
+                        },
+                      ),
+                    ),
                   ),
-                  )
                 ],
               ),
             ),
@@ -71,7 +71,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
                 onboardingVM.onboardingPages.length,
-                    (index) => Container(
+                (index) => Container(
                   margin: EdgeInsets.symmetric(horizontal: 3.w),
                   width: onboardingVM.currentPage == index ? 15.w : 8.w,
                   height: 7.h,
@@ -86,7 +86,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             ),
 
             SizedBox(height: 76.h),
-
           ],
         ),
       ),

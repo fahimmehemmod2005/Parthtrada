@@ -8,6 +8,8 @@ class PrimaryButton extends StatelessWidget {
   final double? height;
   final double? width;
   final Color? color;
+  final bool isLoading;
+
   const PrimaryButton({
     super.key,
     required this.text,
@@ -15,23 +17,37 @@ class PrimaryButton extends StatelessWidget {
     this.height = 56,
     this.width = double.infinity,
     this.color,
+    this.isLoading = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: isLoading ? null : onTap,
       child: Container(
         width: width,
         height: height,
         decoration: BoxDecoration(
-          color: color ?? Color(0xff019877),
+          color: color ?? const Color(0xff019877),
           borderRadius: BorderRadius.circular(10.r),
         ),
         child: Center(
-          child: Text(text,style: AppTextStyles.primaryButtonText(color: Colors.white),),
+          child: isLoading
+              ? const SizedBox(
+            height: 24,
+            width: 24,
+            child: CircularProgressIndicator(
+              strokeWidth: 2.5,
+              color: Colors.white,
+            ),
+          )
+              : Text(
+            text,
+            style: AppTextStyles.primaryButtonText(color: Colors.white),
+          ),
         ),
       ),
     );
   }
 }
+

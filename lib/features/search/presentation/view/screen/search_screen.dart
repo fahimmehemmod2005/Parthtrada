@@ -22,111 +22,119 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  Future<void> _refresh(){
+    return Future.delayed(Duration(seconds: 3));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         top: true,
         bottom: false,
-        child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 20.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // --------------------- title -----------------------
-                      Text(
-                        'Find Experts',
-                        style: AppTextStyles.title32_800w(color: Colors.white),
-                      ),
-
-                      // --------------------- subtitle -----------------------
-                      Text(
-                        'Connect with Professionals',
-                        style: AppTextStyles.title16_400w(
-                          color: Color(0xff777980),
+        child: RefreshIndicator(
+          backgroundColor: AppColor.primaryColor,
+          onRefresh: _refresh,
+          color: Colors.white,
+          child: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // --------------------- title -----------------------
+                        Text(
+                          'Find Experts',
+                          style: AppTextStyles.title32_800w(color: Colors.white),
                         ),
-                      ),
-                    ],
-                  ),
-                  Spacer(),
 
-                  // --------------------- notification button -----------------------
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, RouteName.notification);
-                    },
-                    child: SvgPicture.asset(AppImages.noti),
-                  ),
-                ],
-              ),
-
-              SizedBox(height: 24.h),
-
-              Row(
-                children: [
-                  // ---------------------- TextFormField -----------------
-                  Expanded(
-                    child: SearchInputField(
-                      height: 50,
-                      hintText: 'Type expert name',
-                      imagePath: AppImages.search,
-                      maxLine: 1,
-                      contentPadding: EdgeInsets.symmetric(vertical: 13),
+                        // --------------------- subtitle -----------------------
+                        Text(
+                          'Connect with Professionals',
+                          style: AppTextStyles.title16_400w(
+                            color: Color(0xff777980),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
+                    Spacer(),
 
-                  SizedBox(width: 8.w),
+                    // --------------------- notification button -----------------------
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, RouteName.notification);
+                      },
+                      child: SvgPicture.asset(AppImages.noti),
+                    ),
+                  ],
+                ),
 
-                  // --------------------- filter button ------------------------
-                  GestureDetector(
-                    onTap: () {
-                      // ------------------- build showModalBottomSheet -----------------
-                      showModalBottomSheet(
-                        context: context,
-                        backgroundColor: Colors.transparent,
-                        isScrollControlled: true,
-                        builder: (context) {
-                          return buildFilterSheet(context, FilterDesign());
-                        },
-                      );
-                    },
-                    child: SvgPicture.asset(AppImages.filter),
-                  ),
-                ],
-              ),
+                SizedBox(height: 24.h),
 
-              SizedBox(height: 24.h),
+                Row(
+                  children: [
+                    // ---------------------- TextFormField -----------------
+                    Expanded(
+                      child: SearchInputField(
+                        height: 50,
+                        hintText: 'Type expert name',
+                        imagePath: AppImages.search,
+                        maxLine: 1,
+                        contentPadding: EdgeInsets.symmetric(vertical: 13),
+                      ),
+                    ),
 
-              Text(
-                'Featured Experts',
-                style: AppTextStyles.title24_800w(color: Colors.white),
-              ),
+                    SizedBox(width: 8.w),
 
-              SizedBox(height: 16.h),
+                    // --------------------- filter button ------------------------
+                    GestureDetector(
+                      onTap: () {
+                        // ------------------- build showModalBottomSheet -----------------
+                        showModalBottomSheet(
+                          context: context,
+                          backgroundColor: Colors.transparent,
+                          isScrollControlled: true,
+                          builder: (context) {
+                            return buildFilterSheet(context, FilterDesign());
+                          },
+                        );
+                      },
+                      child: SvgPicture.asset(AppImages.filter),
+                    ),
+                  ],
+                ),
 
-              ExpertCard(),
+                SizedBox(height: 24.h),
 
-              SizedBox(height: 24.h),
+                Text(
+                  'Featured Experts',
+                  style: AppTextStyles.title24_800w(color: Colors.white),
+                ),
 
-              Text(
-                'What People Say',
-                style: AppTextStyles.title24_800w(color: Colors.white),
-              ),
+                SizedBox(height: 16.h),
 
-              SizedBox(height: 16.h),
+                ExpertCard(),
 
-              PeopleRatingCard(),
-              SizedBox(height: 20.h),
-              MentorStatsSection(),
-              SizedBox(height: 20.h),
-              BrandsCard(),
-              SizedBox(height: 100.h),
-            ],
+                SizedBox(height: 24.h),
+
+                Text(
+                  'What People Say',
+                  style: AppTextStyles.title24_800w(color: Colors.white),
+                ),
+
+                SizedBox(height: 16.h),
+
+                PeopleRatingCard(),
+                SizedBox(height: 20.h),
+                MentorStatsSection(),
+                SizedBox(height: 20.h),
+                BrandsCard(),
+                SizedBox(height: 100.h),
+              ],
+            ),
           ),
         ),
       ),

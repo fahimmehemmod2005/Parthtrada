@@ -31,7 +31,7 @@ class OnboardingPage extends StatelessWidget {
             style: AppTextStyles.title24_800w(color: Colors.white)
           ),
 
-          SizedBox(height: 12.h),
+          SizedBox(height: 12),
 
           // Description
           Text(
@@ -40,7 +40,7 @@ class OnboardingPage extends StatelessWidget {
             style: AppTextStyles.title16_400w(color: AppColor.grayBlack50)
           ),
 
-          SizedBox(height: 30.h),
+          SizedBox(height: 30),
 
           // Image
           Container(

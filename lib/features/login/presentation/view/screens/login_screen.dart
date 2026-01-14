@@ -13,6 +13,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,12 +61,21 @@ class _LoginScreenState extends State<LoginScreen> {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: PrimaryButton(
-                  text: 'Login In With Linkdin',
-                  onTap: () {
+                  isLoading: isLoading,
+                  text: 'Login In With LinkedIn',
+                  onTap: () async {
+                    setState(() {
+                      isLoading = true;
+                    });
+                    await Future.delayed(const Duration(seconds: 1));
                     Navigator.pushNamed(context, RouteName.home);
+                    setState(() {
+                      isLoading = false;
+                    });
                   },
                 ),
               ),
+
             ],
           ),
         ),

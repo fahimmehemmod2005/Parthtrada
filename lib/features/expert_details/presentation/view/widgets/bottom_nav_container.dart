@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:parthtrada/core/constant/route_name.dart';
 
 import '../../../../../app/themes/app_text_styles.dart';
 import '../../../../../app/widgets/buttons/primary_button.dart';
@@ -34,13 +35,17 @@ class BottomNavContainer extends StatelessWidget {
               Expanded(
                 child: PrimaryButton(
                   text: 'Decline',
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
                   color: AppColor.containerColor,
                 ),
               ),
               SizedBox(width: 10),
               Expanded(
-                child: PrimaryButton(text: 'Accept', onTap: () {}),
+                child: PrimaryButton(text: 'Accept', onTap: () {
+                  Navigator.pushNamed(context, RouteName.home);
+                }),
               ),
             ],
           ),

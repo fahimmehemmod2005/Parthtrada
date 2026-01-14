@@ -94,6 +94,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                               onTap: () {},
                             ),
                           ),
+                          SizedBox(width: 10),
                           Expanded(
                             child: PrimaryButton(
                               height: 40,
