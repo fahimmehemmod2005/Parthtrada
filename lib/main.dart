@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:parthtrada/app/viewmodels/app_viewmodels.dart';
 import 'package:parthtrada/core/constant/app_color.dart';
@@ -7,11 +8,13 @@ import 'app/routes/app_routes.dart';
 
 void main() {
   runApp(
-    MultiProvider(providers: AppViewModels.viewModels,
-        child: const MyApp()
+    MultiProvider(
+      providers: AppViewModels.viewModels,
+      child: const MyApp(),
     ),
   );
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -25,7 +28,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           title: 'Parthtrada',
-          theme: ThemeData(scaffoldBackgroundColor: AppColor.scaffoldColor),
+          darkTheme: ThemeData.dark(),
           debugShowCheckedModeBanner: false,
           initialRoute: AppRoutes.initialRoute,
           routes: AppRoutes.routes,
