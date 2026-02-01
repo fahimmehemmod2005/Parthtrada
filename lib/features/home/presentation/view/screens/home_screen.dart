@@ -27,57 +27,51 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          // ---------- active page ----------
-          pages[currentIndex],
-          // ---------- bottom nav ----------
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              height: 66.h,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: const Color(0xff191919),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30.r),
-                  topRight: Radius.circular(30.r),
-                ),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  BottomNavBar(
-                    imagePath: AppImages.search,
-                    text: 'Search',
-                    isActive: currentIndex == 0,
-                    onTap: () => setState(() => currentIndex = 0),
-                  ),
-                  BottomNavBar(
-                    imagePath: AppImages.calender,
-                    text: 'Schedule',
-                    isActive: currentIndex == 1,
-                    onTap: () => setState(() => currentIndex = 1),
-                  ),
-                  BottomNavBar(
-                    imagePath: AppImages.message,
-                    text: 'Message',
-                    isActive: currentIndex == 2,
-                    onTap: () => setState(() => currentIndex = 2),
-                  ),
-                  BottomNavBar(
-                    imagePath: AppImages.profile,
-                    text: 'Profile',
-                    isActive: currentIndex == 3,
-                    onTap: () => setState(() => currentIndex = 3),
-                  ),
-                ],
-              ),
+      // ---------- active page ----------
+      body: pages[currentIndex],
+      // ---------- bottom nav ----------
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          height: 66.h,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: const Color(0xff191919),
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30.r),
+              topRight: Radius.circular(30.r),
             ),
           ),
-        ],
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              BottomNavBar(
+                imagePath: AppImages.search,
+                text: 'Search',
+                isActive: currentIndex == 0,
+                onTap: () => setState(() => currentIndex = 0),
+              ),
+              BottomNavBar(
+                imagePath: AppImages.calender,
+                text: 'Schedule',
+                isActive: currentIndex == 1,
+                onTap: () => setState(() => currentIndex = 1),
+              ),
+              BottomNavBar(
+                imagePath: AppImages.message,
+                text: 'Message',
+                isActive: currentIndex == 2,
+                onTap: () => setState(() => currentIndex = 2),
+              ),
+              BottomNavBar(
+                imagePath: AppImages.profile,
+                text: 'Profile',
+                isActive: currentIndex == 3,
+                onTap: () => setState(() => currentIndex = 3),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
 }
-

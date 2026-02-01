@@ -95,9 +95,7 @@ class _SessionDetailsState extends State<SessionDetails> {
           contentPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
           maxLine: 4,
         ),
-
-        Spacer(),
-
+        SizedBox(height: 20.0,),
         // Bottom Buttons
         Row(
           children: [
@@ -134,8 +132,6 @@ class _SessionDetailsState extends State<SessionDetails> {
             ),
           ],
         ),
-
-        SizedBox(height: 20.h),
       ],
     );
   }

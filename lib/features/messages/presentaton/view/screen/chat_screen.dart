@@ -141,7 +141,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         itemCount: messages.length,
                         itemBuilder: (context, index) {
                           return ChatBubble(
-                              message: messages[index],
+                            message: messages[index],
                             userImage: AppImages.user7,
                             expertImage: AppImages.experts,
                           );
@@ -158,11 +158,9 @@ class _ChatScreenState extends State<ChatScreen> {
                     children: [
                       Text(
                         'Sarah Chen is typing',
-                        style: TextStyle(
-                          color: AppColor.primaryColor
-                        ),
+                        style: TextStyle(color: AppColor.primaryColor),
                       ),
-                      SizedBox(height: 5,),
+                      SizedBox(height: 5),
                       TypingDots(),
                     ],
                   ),

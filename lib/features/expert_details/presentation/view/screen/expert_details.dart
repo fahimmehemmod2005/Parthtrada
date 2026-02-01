@@ -26,8 +26,6 @@ class _ExpertDetailsState extends State<ExpertDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        top: true,
-        bottom: false,
         child: ListView(
           padding: EdgeInsets.symmetric(horizontal: 24),
           children: [
@@ -304,31 +302,26 @@ class _ExpertDetailsState extends State<ExpertDetails> {
       ),
 
       // ---------------- booking button botton sheet --------------------
-      bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        height: 80,
-        color: Colors.transparent,
-        child: Column(
-          children: [
-            PrimaryButton(
-              text: 'Book \$150/hour',
-              onTap: () {
-                // ------------------- build showModalBottomSheet -----------------
-                showModalBottomSheet(
-                  context: context,
-                  backgroundColor: AppColor.scaffoldColor,
-                  isScrollControlled: true,
-                  builder: (context) {
-                    return buildFilterSheet(
-                      context,
-                      SessionTime(),
-                    );
-                  },
-                );
-              },
-            ),
-            SizedBox(height: 20,)
-          ],
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.0),
+          child: PrimaryButton(
+            text: 'Book \$150/hour',
+            onTap: () {
+              // ------------------- build showModalBottomSheet -----------------
+              showModalBottomSheet(
+                context: context,
+                backgroundColor: AppColor.scaffoldColor,
+                isScrollControlled: true,
+                builder: (context) {
+                  return buildFilterSheet(
+                    context,
+                    SessionTime(),
+                  );
+                },
+              );
+            },
+          ),
         ),
       ),
     );

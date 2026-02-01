@@ -67,8 +67,6 @@ class _SessionDurationState extends State<SessionDuration> {
 
         SizedBox(height: 20.h),
 
-        Spacer(),
-
         // Bottom Buttons
         Row(
           children: [

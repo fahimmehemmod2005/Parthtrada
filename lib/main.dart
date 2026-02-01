@@ -28,8 +28,9 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MaterialApp(
           title: 'Parthtrada',
-          darkTheme: ThemeData.dark(),
           debugShowCheckedModeBanner: false,
+          darkTheme: ThemeData.dark(),
+          themeMode: ThemeMode.dark,
           initialRoute: AppRoutes.initialRoute,
           routes: AppRoutes.routes,
         );
